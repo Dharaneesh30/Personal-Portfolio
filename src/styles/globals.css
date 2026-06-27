@@ -39,6 +39,11 @@ body {
   cursor: none;
 }
 
+::selection {
+  background: rgba(255, 184, 0, 0.28);
+  color: var(--text);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -96,7 +101,8 @@ textarea {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 0 0 1px rgba(255, 184, 0, 0.05),
-    0 18px 60px rgba(0, 0, 0, 0.35);
+    0 18px 60px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(41, 121, 255, 0.04);
 }
 
 .energy-border {
