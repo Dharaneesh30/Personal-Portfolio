@@ -76,6 +76,13 @@ https://<project-ref>.functions.supabase.co/notify-on-message
 2. The database webhook fires on `INSERT`.
 3. The edge function receives the payload and sends the owner notification email.
 
+## 11. Portfolio-specific placeholders
+
+- Replace the contact email placeholder in `src/pages/ContactPage.jsx`.
+- Replace the placeholder LinkedIn URL in `src/pages/ContactPage.jsx`.
+- Replace the GitHub project `href` placeholders in `src/pages/ProjectsPage.jsx`.
+- Replace the profile image placeholder in `src/pages/HomePage.jsx`.
+
 ## Notes
 
 - `.env` and `.env.local` are ignored by git and should never be committed.
