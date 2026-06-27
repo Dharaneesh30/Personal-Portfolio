@@ -94,6 +94,17 @@ export default function HomePage() {
                 innovation with leadership. A soft-spoken strategist who thrives on collaboration,
                 creativity, and out-of-the-box thinking to drive impactful solutions.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.18em] text-gold">
+                  Collaboration First
+                </span>
+                <span className="rounded-full border border-shield/30 bg-shield/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.18em] text-shield">
+                  Creative Strategist
+                </span>
+                <span className="rounded-full border border-gamma/30 bg-gamma/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.18em] text-gamma">
+                  Innovation Driven
+                </span>
+              </div>
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-text/80">
                 <ContactChip icon={<HiOutlinePhone />} label="9489240892" />
                 <ContactChip icon={<FaLinkedinIn />} label="Dharaneesh N" />
