@@ -52,6 +52,15 @@ export default function StartPage() {
           Dharaneesh N - Tech Enthusiast | Developer | Innovator
         </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: typed.length === line.length ? 1 : 0, y: typed.length === line.length ? 0 : 20 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="mt-5 armor-panel border border-shield/20 bg-shield/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.22em] text-shield"
+        >
+          3D Command Core Online
+        </motion.div>
+
         <div className="relative mt-12 grid place-items-center">
           <HudRings size={460} className="hidden sm:grid" />
           <HudRings size={320} className="grid sm:hidden" />
