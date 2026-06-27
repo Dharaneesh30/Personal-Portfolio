@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineCheckCircle, HiOutlineExclamationCircle } from "react-icons/hi";
-import { supabase } from "../lib/supabase";
+import { isSupabaseConfigured, supabase } from "../lib/supabase";
 
 const initialForm = {
   name: "",
@@ -93,6 +93,12 @@ export default function ContactForm() {
       >
         {loading ? "Transmitting..." : "Send Signal"}
       </button>
+
+      {!isSupabaseConfigured && (
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
+          Add your Supabase keys in `.env.local` to activate live message delivery.
+        </p>
+      )}
 
       {status.message && (
         <motion.div
