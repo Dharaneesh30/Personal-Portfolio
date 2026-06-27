@@ -81,6 +81,7 @@ export default function JourneyPage() {
 
         <section className="relative space-y-10">
           <div className="absolute left-4 top-4 hidden h-[calc(100%-2rem)] w-[2px] bg-gradient-to-b from-ember via-gold to-shield opacity-70 md:left-1/2 md:block" />
+          <div className="absolute left-4 top-4 h-[calc(100%-2rem)] w-[2px] bg-gradient-to-b from-ember via-gold to-shield opacity-40 md:hidden" />
           {entries.map((entry, index) => (
             <TimelineNode key={`${entry.title}-${entry.year}`} entry={entry} index={index} />
           ))}
