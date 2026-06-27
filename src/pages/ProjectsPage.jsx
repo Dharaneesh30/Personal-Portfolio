@@ -81,7 +81,12 @@ export default function ProjectsPage() {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <p className="hero-heading gradient-text text-4xl sm:text-5xl">Mission Log</p>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="hero-heading gradient-text text-4xl sm:text-5xl">Mission Log</p>
+            <span className="rounded-full border border-gold/30 bg-gold/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-gold">
+              10 missions archived
+            </span>
+          </div>
           <p className="mt-4 text-text/70">Every project is a mission completed.</p>
           <div className="mt-5 power-line" />
         </motion.div>
