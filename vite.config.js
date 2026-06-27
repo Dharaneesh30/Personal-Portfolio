@@ -3,4 +3,14 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "three-stack": ["three", "@react-three/fiber", "@react-three/drei"],
+        },
+      },
+    },
+  },
 });
