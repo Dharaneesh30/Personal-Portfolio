@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const particles = Array.from({ length: 28 }, (_, index) => ({
+const particles = Array.from({ length: 34 }, (_, index) => ({
   id: index,
   left: `${(index * 13) % 100}%`,
   size: 4 + (index % 5),

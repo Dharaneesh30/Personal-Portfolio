@@ -29,9 +29,12 @@ export default function Navbar() {
           </div>
           <div>
             <p className="hero-heading text-sm text-text">Dharaneesh N</p>
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
-              Multi-Hero Interface
-            </p>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-gamma shadow-gamma animate-pulse" />
+              <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-muted">
+                Multi-Hero Interface
+              </p>
+            </div>
           </div>
         </NavLink>
 
