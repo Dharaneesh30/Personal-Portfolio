@@ -3,6 +3,7 @@
 // Set secrets with:
 // supabase secrets set RESEND_API_KEY=your-key NOTIFY_EMAIL=your-email@example.com
 // TODO: Add Resend API key in Supabase Edge Function secrets
+// Configure a database webhook on INSERT for public.messages and point it to this function URL.
 
 interface WebhookPayload {
   type: string;

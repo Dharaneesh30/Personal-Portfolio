@@ -9,6 +9,8 @@ create table if not exists public.messages (
   created_at timestamp with time zone default now()
 );
 
+create index if not exists messages_created_at_idx on public.messages (created_at desc);
+
 alter table public.messages enable row level security;
 
 drop policy if exists "Allow public insert to messages" on public.messages;
