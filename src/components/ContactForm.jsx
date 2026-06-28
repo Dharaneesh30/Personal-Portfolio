@@ -10,7 +10,7 @@ const initialForm = {
   message: "",
 };
 
-export default function ContactForm() {
+export default function ContactForm({ onSignalStart, onSignalSuccess }) {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -22,6 +22,7 @@ export default function ContactForm() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    onSignalStart?.();
     setLoading(true);
     setStatus({ type: "", message: "" });
 
@@ -43,6 +44,7 @@ export default function ContactForm() {
         type: "success",
         message: "Signal received! I'll respond soon.",
       });
+      onSignalSuccess?.();
     } catch (error) {
       setStatus({
         type: "error",

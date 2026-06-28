@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import TimelineNode from "../components/TimelineNode";
+import StormcallerRune from "../components/heroes/StormcallerRune";
 
 const entries = [
   {
@@ -59,6 +61,14 @@ const entries = [
 ];
 
 export default function JourneyPage() {
+  const [chargeKey, setChargeKey] = useState(0);
+  const [finalCharge, setFinalCharge] = useState(false);
+
+  const handleNodeEnter = (entry) => {
+    setChargeKey((value) => value + 1);
+    setFinalCharge(Boolean(entry.future));
+  };
+
   return (
     <motion.main
       initial={{ opacity: 0, x: 60 }}
@@ -79,11 +89,21 @@ export default function JourneyPage() {
           <div className="mt-5 power-line" />
         </motion.div>
 
-        <section className="relative space-y-10">
+        <section className="relative space-y-10 pt-28">
+          <StormcallerRune
+            chargeKey={chargeKey}
+            finalCharge={finalCharge}
+            className="left-1/2 top-[-0.5rem] z-0 -translate-x-1/2"
+          />
           <div className="absolute left-4 top-4 hidden h-[calc(100%-2rem)] w-[2px] bg-gradient-to-b from-ember via-gold to-shield opacity-70 md:left-1/2 md:block" />
           <div className="absolute left-4 top-4 h-[calc(100%-2rem)] w-[2px] bg-gradient-to-b from-ember via-gold to-shield opacity-40 md:hidden" />
           {entries.map((entry, index) => (
-            <TimelineNode key={`${entry.title}-${entry.year}`} entry={entry} index={index} />
+            <TimelineNode
+              key={`${entry.title}-${entry.year}`}
+              entry={entry}
+              index={index}
+              onEnter={handleNodeEnter}
+            />
           ))}
         </section>
       </div>

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import ContactForm from "../components/ContactForm";
+import ShadowWraith from "../components/heroes/ShadowWraith";
 
 const contactItems = [
   { icon: <HiOutlinePhone size={22} />, label: "Phone", value: "9489240892", accent: "gold" },
@@ -12,6 +14,9 @@ const contactItems = [
 ];
 
 export default function ContactPage() {
+  const [throwKey, setThrowKey] = useState(0);
+  const [acknowledgeKey, setAcknowledgeKey] = useState(0);
+
   return (
     <motion.main
       initial={{ opacity: 0, x: 60 }}
@@ -64,7 +69,19 @@ export default function ContactPage() {
             ))}
           </motion.div>
 
-          <ContactForm />
+          <div className="relative min-h-full">
+            <ShadowWraith
+              throwKey={throwKey}
+              acknowledgeKey={acknowledgeKey}
+              className="right-[-1.5rem] top-6 z-0 w-[170px] opacity-[0.12] sm:right-2 sm:w-[210px] lg:right-6 lg:top-10"
+            />
+            <div className="relative z-10">
+              <ContactForm
+                onSignalStart={() => setThrowKey((value) => value + 1)}
+                onSignalSuccess={() => setAcknowledgeKey((value) => value + 1)}
+              />
+            </div>
+          </div>
         </section>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">

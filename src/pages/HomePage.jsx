@@ -1,10 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { HiOutlinePhone, HiOutlineAcademicCap, HiOutlineSparkles } from "react-icons/hi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import HexPattern from "../components/HexPattern";
 import HudRings from "../components/HudRings";
 import SkillTag from "../components/SkillTag";
 import placeholderPhoto from "../assets/placeholder-photo.svg";
+import AegisPrime from "../components/heroes/AegisPrime";
 
 const education = [
   {
@@ -50,6 +52,9 @@ const extraCurricular = [
 ];
 
 export default function HomePage() {
+  const profileRef = useRef(null);
+  const profileInView = useInView(profileRef, { once: true, amount: 0.45 });
+
   return (
     <motion.main
       initial={{ opacity: 0, x: 60 }}
@@ -59,8 +64,15 @@ export default function HomePage() {
       className="px-4 pb-20 pt-28 sm:px-8"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-10">
-        <section className="armor-panel section-shell relative overflow-hidden px-6 py-10 sm:px-10">
+        <section
+          ref={profileRef}
+          className="armor-panel section-shell relative overflow-hidden px-6 py-10 sm:px-10"
+        >
           <HexPattern />
+          <AegisPrime
+            active={profileInView}
+            className="right-[-1.25rem] top-2 z-0 w-[150px] opacity-20 sm:right-4 sm:top-6 sm:w-[220px] lg:right-10 lg:top-8"
+          />
           <div className="relative z-10 grid gap-10 lg:grid-cols-[280px_1fr] lg:items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

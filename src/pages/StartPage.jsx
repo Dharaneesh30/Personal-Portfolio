@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import HeroEntrance from "../components/HeroEntrance";
 import HexPattern from "../components/HexPattern";
-import HudRings from "../components/HudRings";
-import ThreeScene from "../components/ThreeScene";
 
 const line = "ASSEMBLING TALENT. BUILDING THE FUTURE.";
 
@@ -61,10 +60,8 @@ export default function StartPage() {
           3D Command Core Online
         </motion.div>
 
-        <div className="relative mt-12 grid place-items-center">
-          <HudRings size={460} className="hidden sm:grid" />
-          <HudRings size={320} className="grid sm:hidden" />
-          <ThreeScene />
+        <div className="relative mt-12">
+          <HeroEntrance />
         </div>
 
         <motion.div

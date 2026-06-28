@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const colors = {
   ember: "bg-ember shadow-[0_0_18px_rgba(255,59,48,0.65)]",
@@ -7,8 +7,9 @@ const colors = {
   gamma: "bg-gamma shadow-[0_0_18px_rgba(111,209,60,0.65)]",
 };
 
-export default function TimelineNode({ entry, index }) {
+export default function TimelineNode({ entry, index, onEnter }) {
   const reverse = index % 2 === 1;
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="relative grid gap-6 md:grid-cols-[1fr_90px_1fr] md:items-center">
@@ -17,6 +18,7 @@ export default function TimelineNode({ entry, index }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.45 }}
+        onViewportEnter={() => onEnter?.(entry)}
         className={`${reverse ? "md:col-start-3" : "md:col-start-1"} armor-panel section-shell p-6`}
       >
         <div className="mb-4 flex items-center gap-3">
@@ -39,7 +41,7 @@ export default function TimelineNode({ entry, index }) {
       <div className="relative hidden h-full items-center justify-center md:flex">
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
-          whileInView={{ scale: [0.7, 1.1, 1], opacity: 1 }}
+          whileInView={reduceMotion ? { opacity: 1, scale: 1 } : { scale: [0.7, 1.1, 1], opacity: 1 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.45 }}
           className={`relative z-10 h-5 w-5 rounded-full ${colors[entry.color]}`}

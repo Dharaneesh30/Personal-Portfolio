@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-export default function ProjectCard({ project, index }) {
+export default function ProjectCard({ project, index, onHoverChange }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 28, scale: 0.92 }}
@@ -9,6 +9,8 @@ export default function ProjectCard({ project, index }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, delay: index * 0.1 }}
       whileHover={{ y: -6, scale: 1.03 }}
+      onHoverStart={() => onHoverChange?.(true)}
+      onHoverEnd={() => onHoverChange?.(false)}
       className="energy-border armor-panel section-shell relative flex h-full flex-col gap-4 p-6"
     >
       <div className="power-line" />
